@@ -1,0 +1,2 @@
+class AcrticlesController < ApplicationController
+end
