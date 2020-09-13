@@ -50,11 +50,15 @@ class ArticlesController < ApplicationController
     @article = Article.destroy(params[:id])
 
     flash.notice = "Article '#{@article.title}' DESTROYED! mwahaha"
-    redirect_to article_path(@article)
+    redirect_to articles_path(@article)
   end
 
 
   def show
     @article = Article.find(params[:id])
+
+    @comment = Comment.new
+    @comment.article_id = @article.id
+
   end
 end
