@@ -1,4 +1,10 @@
 <h1><%= @article.title %></h1>
+<p>
+  Tags:
+  <% @article.tags.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag) %>
+  <% end %>
+</p>
 <p><%= @article.body %></p>
 
 <h3>Comments (<%= @article.comments.size %>)</h3>
@@ -9,3 +15,4 @@
 
 <%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
 <%= link_to "Let's EDIT THIS SHIT!", edit_article_path(@article) %>
+<%= link_to "View Tag LIST!", '/tags'%>
